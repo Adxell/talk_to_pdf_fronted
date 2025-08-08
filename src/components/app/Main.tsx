@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import type { Message } from "../types/Message";
 import ErrorMessage from "../common/ErrorMessage";
 import ChatInput from "../chat/ChatInput";
@@ -15,7 +15,7 @@ const Main = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   
-  const handlePdfUpload = (file: File) => {
+  const handlePdfUpload = () => {
     setIsLoading(true);
     setTimeout(() => {
       setIsPdfUploaded(true);
@@ -32,7 +32,7 @@ const Main = () => {
     { id: '2', role: 'user', text: 'What is the main topic of this document?' },
     { id: '3', role: 'assistant', text: 'The main topic appears to be about advancements in renewable energy sources.' },
   ]);
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
         if (!userInput.trim()) return;
         
