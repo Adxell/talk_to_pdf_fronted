@@ -18,7 +18,7 @@ export default tseslint.config(
       parser: tseslint.parser,
       parserOptions: {
         ecmaFeatures: { jsx: true },
-        project: true,
+        project: ['./tsconfig.app.json', './tsconfig.node.json'],
         tsconfigRootDir: import.meta.dirname,
       },
       globals: {
@@ -50,11 +50,10 @@ export default tseslint.config(
     },
     settings: {
       react: {
-        version: 'detect', // Detectar automáticamente la versión de React
+        version: 'detect',
       },
     },
   },
 
-  // Al final, añade la configuración de Prettier para desactivar reglas conflictivas
   prettierConfig,
 );
