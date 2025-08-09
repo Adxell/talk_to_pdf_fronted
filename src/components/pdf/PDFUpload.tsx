@@ -1,5 +1,5 @@
 import { Loader2, Upload } from "lucide-react";
-import { useRef } from "react";
+import { useRef, type DragEvent } from "react";
 
 const PDFUpload: React.FC<{ onPdfUpload: (file: File) => void; isLoading: boolean }> = ({ onPdfUpload, isLoading }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -11,7 +11,7 @@ const PDFUpload: React.FC<{ onPdfUpload: (file: File) => void; isLoading: boolea
     }
   };
 
-  const handleDragOver = (e: React.DragEvent) => {
+  const handleDragOver = (e: DragEvent) => {
     e.preventDefault();
   };
 
